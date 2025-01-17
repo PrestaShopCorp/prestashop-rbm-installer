@@ -22,12 +22,8 @@
 namespace PrestaShopCorp\Billing\Services;
 
 use Module;
-use PrestaShopCorp\Billing\Builder\UrlBuilder;
-use PrestaShopCorp\Billing\Clients\BillingApiGatewayClient;
-use PrestaShopCorp\Billing\Clients\BillingServiceSubscriptionClient;
-use PrestaShopCorp\Billing\Wrappers\BillingContextWrapper;
 
-class BillingService 
+class BillingService
 {
     /**
      * Retrieve the Billing customer associated with the shop
@@ -49,6 +45,7 @@ class BillingService
             '%s is deprecated since version 4.0. See documentation billing documentation https://docs.cloud.prestashop.com/5-prestashop-billing/1-overview/ to know how to retrieve the current customer.',
             __METHOD__
         ));
+
         return null;
     }
 
@@ -72,6 +69,7 @@ class BillingService
             '%s is deprecated since version 4.0. See documentation billing documentation https://docs.cloud.prestashop.com/5-prestashop-billing/1-overview/ to know how to retrieve the current subscription.',
             __METHOD__
         ));
+
         return null;
     }
 
@@ -94,6 +92,7 @@ class BillingService
             '%s is deprecated since version 4.0. See documentation billing documentation https://docs.cloud.prestashop.com/5-prestashop-billing/1-overview/ to know how to retrieve the components of your product.',
             __METHOD__
         ));
+
         return null;
     }
 }
