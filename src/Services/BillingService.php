@@ -27,7 +27,8 @@ use PrestaShopCorp\Billing\Clients\BillingApiGatewayClient;
 use PrestaShopCorp\Billing\Clients\BillingServiceSubscriptionClient;
 use PrestaShopCorp\Billing\Wrappers\BillingContextWrapper;
 
-class BillingService {
+class BillingService 
+{
     /**
      * Retrieve the Billing customer associated with the shop
      * on which your module is installed
