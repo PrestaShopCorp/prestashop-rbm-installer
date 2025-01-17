@@ -26,5 +26,13 @@
     "allow-plugins": {
       "php-http/discovery": true
     }
-  }
+  },
+  "scripts": {
+    "post-install-cmd": [
+        "bash scripts/install-hooks.sh"
+    ],
+    "post-update-cmd": [
+        "bash scripts/install-hooks.sh"
+    ]
+}
 }
