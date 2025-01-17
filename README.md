@@ -20,10 +20,12 @@ composer require prestashopcorp/module-lib-billing
 | 1.x     | Security fixes | `module-lib-billing` | `PrestaShopCorp\Billing` | [v1][lib-1-repo] | N/A  | >=5.6       |
 | 2.x     | Security fixes | `module-lib-billing` | `PrestaShopCorp\Billing` | [v2][lib-2-repo] | N/A  | >=7.2.5     |
 | 3.x     | Latest         | `module-lib-billing` | `PrestaShopCorp\Billing` | [v3][lib-3-repo] | N/A  | >=5.6       |
+| 4.x     | Latest         | `module-lib-billing` | `PrestaShopCorp\Billing` | [v4][lib-4-repo] | N/A  | >=5.6       |
 
 [lib-1-repo]: https://github.com/PrestaShopCorp/module-lib-billing/tree/1.x
 [lib-2-repo]: https://github.com/PrestaShopCorp/module-lib-billing/tree/2.x
-[lib-3-repo]: https://github.com/PrestaShopCorp/module-lib-billing
+[lib-3-repo]: https://github.com/PrestaShopCorp/module-lib-billing/tree/2.3
+[lib-4-repo]: https://github.com/PrestaShopCorp/module-lib-billing
 
 ## Register as a service in your PSx container
 
@@ -39,22 +41,14 @@ services:
     class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
     arguments:
       - "@ps_accounts.facade"
-      - "@rbm_example.context"
+      - "@builtfor_Example.context"
       - true # if true you are in sandbox mode, if false or empty not in sandbox
 
   ps_billings.facade:
     class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
     arguments:
       - "@ps_billings.context_wrapper"
-      - "@rbm_example.module"
-
-  # Remove this if you don't need BillingService
-  ps_billings.service:
-    class: PrestaShopCorp\Billing\Services\BillingService
-    public: true
-    arguments:
-      - "@ps_billings.context_wrapper"
-      - "@rbm_example.module"
+      - "@builtfor_Example.module"
 ```
 
 ## How to use it
