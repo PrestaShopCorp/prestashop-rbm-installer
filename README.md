@@ -48,7 +48,7 @@ services:
     class: 'PrestaShopCorp\Billing\Presenter\BillingPresenter'
     arguments:
       - "@ps_billings.context_wrapper"
-      - "@builtfor_Example.module"
+      - "@builtfor_example.module"
 ```
 
 ## How to use it
