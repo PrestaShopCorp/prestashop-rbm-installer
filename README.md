@@ -41,7 +41,7 @@ services:
     class: 'PrestaShopCorp\Billing\Wrappers\BillingContextWrapper'
     arguments:
       - "@ps_accounts.facade"
-      - "@builtfor_Example.context"
+      - "@builtfor_example.context"
       - true # if true you are in sandbox mode, if false or empty not in sandbox
 
   ps_billings.facade:
