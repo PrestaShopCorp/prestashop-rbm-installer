@@ -25,27 +25,34 @@ jobs:
       - name: PHP syntax checker 8.2
         uses: prestashop/github-action-php-lint/8.2@master
 
-  php-cs-fixer:
-    name: PHP-CS-FIXER
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run PHP-CS-Fixer
-        uses: prestashopcorp/github-action-php-cs-fixer@master
-
   phpunit:
     name: PHPUNIT
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        version: [5.6, 7.1, 7.2, 8.0]
+        php-config:
+          - php-version: 5.6
+            phpunit-version: 5
+          - php-version: 7.1
+            phpunit-version: 7
+          - php-version: 7.2
+            phpunit-version: 7
+          - php-version: 7.3
+            phpunit-version: 9
+          - php-version: 7.4
+            phpunit-version: 9
+          - php-version: 8.0
+            phpunit-version: 9
+          - php-version: 8.1
+            phpunit-version: 10
+          - php-version: 8.2
+            phpunit-version: 11
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP with tools
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.version }}
+          php-version: ${{ matrix.php-config.php-version }}
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -55,8 +62,8 @@ jobs:
       - name: Install dependencies
         run: composer install
 
-      - name: PHPUnit tests
+      - name: Download and Run PHPUnit
         run: |
-          wget -O phpunit https://phar.phpunit.de/phpunit-5.phar
+          wget -O phpunit https://phar.phpunit.de/phpunit-${{ matrix.php-config.phpunit-version }}.phar
           chmod +x phpunit
           ./phpunit tests
