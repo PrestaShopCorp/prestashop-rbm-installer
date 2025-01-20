@@ -60,7 +60,7 @@ jobs:
         run: composer update
 
       - name: Install dependencies
-        run: composer install
+        run: composer install -no-dev 
 
       - name: Download and Run PHPUnit
         run: |
